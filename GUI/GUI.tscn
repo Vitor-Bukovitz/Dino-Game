@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/GUI/BarBackground.png" type="Texture" id=1]
+[ext_resource path="res://Assets/GUI/BlueBar_0.png" type="Texture" id=2]
+[ext_resource path="res://GUI/GUI.gd" type="Script" id=3]
+
+[node name="GUI" type="Control" groups=[
+"GUI",
+]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -5.79163
+margin_top = -50.3506
+margin_right = -5.79163
+margin_bottom = -50.3506
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureProgress" type="TextureProgress" parent="."]
+anchor_right = 1.0
+margin_left = 9.74457
+margin_top = -37.4389
+margin_right = -44.2554
+margin_bottom = 986.561
+rect_scale = Vector2( 0.3, 0.3 )
+value = 50.0
+texture_under = ExtResource( 1 )
+texture_progress = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

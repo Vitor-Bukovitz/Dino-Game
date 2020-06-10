@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Enviroment/Layer 1.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Hazzards/Enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Enviroment/ground.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 993.472, 25.4264 )
@@ -19,7 +20,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 74.646, 478.126 )
+position = Vector2( 69.6355, 952.458 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -27,5 +28,8 @@ position = Vector2( 74.646, 478.126 )
 position = Vector2( 956.725, 1032.18 )
 shape = SubResource( 1 )
 
-[node name="Enemy" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1109.88, 959.018 )
+[node name="GUI" parent="." instance=ExtResource( 3 )]
+
+[node name="ground" type="Sprite" parent="."]
+position = Vector2( 941.912, 1042.75 )
+texture = ExtResource( 4 )

@@ -6,8 +6,7 @@ const SPEED = 500
 const GRAVITY = 150
 const UP = Vector2(0, -1)
 const JUMP_SPEED = 2200
-const WORLD_LIMIT = 4000
-
+var fire_fuel = 500
 
 signal animate
 
@@ -34,7 +33,7 @@ func jump():
 
 
 func move():
-	if Input.is_action_pressed("down") and is_on_floor():
+	if Input.is_action_pressed("down") and is_on_floor() and fire_fuel > 0:
 		rotate_fire()
 		motion.y = -1
 		motion.x = 0
@@ -46,7 +45,7 @@ func move():
 		$Sprite.flip_h = false
 	else:
 		motion.x = 0
-
+	use_refil_fire()
 
 func animate():
 	emit_signal("animate", motion)
@@ -57,4 +56,29 @@ func rotate_fire():
 	if $Fire.scale.x > 0 and flipped or $Fire.scale.x < 0 and not flipped:
 		$Fire.scale.x *= -1
 		$Fire.position.x *= -1
+
+
+func use_refil_fire():
+	if motion.y == -1 and motion.x == 0:
+		fire_fuel -= 5
+		if fire_fuel < 0:
+			fire_fuel = -50
+	elif fire_fuel < 500:
+		fire_fuel += 1
+	
+	var fuel_percentage = (float(fire_fuel) / 500.0) * 100 if fire_fuel > 0 else 0
+	get_tree().call_group('GUI', 'refresh_fuel', fuel_percentage)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
